@@ -7,7 +7,7 @@ if [ "$CONTINUOUS_INTEGRATION" = "true" ] ; then
     echo "Starting Xvfb..."
     export DISPLAY=:99
     Xvfb $DISPLAY -screen 0 1024x768x16 > /dev/null 2>&1 &
-    sleep 5
+    sleep 25
 fi
 
 # set to 'nil' when writing tests, it'll leave emacs open for you to
