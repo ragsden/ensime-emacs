@@ -26,7 +26,7 @@ install:
     export EMACS=$HOME/emacs-${EMACS_VERSION}-bin/bin/emacs-${EMACS_VERSION} &&
     $EMACS --version
 script:
-  - test/run_emacs_tests.sh || echo $? #2>&1 | tee stdout | grep "Starting test"
+  - test/run_emacs_tests.sh && echo $? #2>&1 | tee stdout | grep "Starting test"
 after_success:
   - if [ ! -z "$UNDERCOVER" ] ; then curl -v -include --form json_file=@coveralls.json https://coveralls.io/api/v1/jobs ; fi
 #after_failure:
